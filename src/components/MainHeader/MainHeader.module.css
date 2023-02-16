@@ -12,5 +12,6 @@
 }
 
 .main-header h1 {
-  color: white;
+  color: #FCC2FC;
+  text-decoration-line: underline ;
 }
