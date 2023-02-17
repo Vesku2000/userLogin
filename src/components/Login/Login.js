@@ -5,7 +5,7 @@ import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 
 const emailReducer = (state, action) => {
-  console.log(state)
+ 
   if(action.type === 'USER_INPUT'){
     return {value: action.val, isValid: action.val.includes('@')};
   }
@@ -17,12 +17,12 @@ const emailReducer = (state, action) => {
 };
 
 const passwordReducer = (state, action) => {
-  console.log(state)
+ 
   if(action.type === 'USER_INPUT'){
     return {value: action.val, isValid: action.val.trim().length > 6};
   }
   if(action.type === 'INPUT_BLUR'){
-    return {value: state.value, isValid: state.value.trim().length > 6};
+    return {value: state.value, isValid: state.value.trim().length > 6 };
   }
 
   return {value: '', isValid: false};
@@ -72,12 +72,12 @@ const Login = (props) => {
 
   useEffect(() => {
     const identifer = setTimeout(() => {
-      console.log('checking form validity');
+    
       setFormIsValid(emailIsValid && passwordIsValid);
     }, 500);
 
     return() => {
-      console.log('CLEANUP');
+ 
       clearTimeout(identifer);
     };
   }, [emailIsValid, passwordIsValid]);
@@ -112,7 +112,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, enteredPassword);
+    props.onLogin(emailState.value, passwordState.value);
   };
 
   return (
